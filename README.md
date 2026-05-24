@@ -1,11 +1,12 @@
 # To-Do Web Application
 
-個人To-Do Web Application
-使用Spring Framework。
-使用Thymeleaf渲染網頁。
-使用Spring Data JPA儲存庫。
-使用MySQL資料庫(須事先建立Todo資料庫及Task表，以及變更username、password)
-使用Spring Security。
+### 個人To-Do Web Application
+
+- 使用Spring Framework。
+- 使用Thymeleaf渲染網頁。
+- 使用Spring Data JPA儲存庫。
+- 使用MySQL資料庫(須事先建立Todo資料庫及Task表，以及變更username、password)。
+- 使用Spring Security。
 
 ### 網頁架構
 
