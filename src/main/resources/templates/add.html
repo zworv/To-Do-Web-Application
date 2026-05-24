@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>To-Do</title>
+</head>
+
+<body>
+    <h1>Add your new task:</h1>
+    <form method="POST" th:object="${task}">
+        <div class="deadLine">
+            <h3>Enter the deadline:</h3>
+            <input type="date" th:field="*{deadline}"/>
+            <span class="validationError"
+                  th:if="${#fields.hasErrors('deadline')}"
+                  th:errors="*{deadline}">deadline Error</span>
+        </div>
+
+        <div class="title">
+            <h3>Enter your task title:</h3>
+            <input type="text" th:field="*{title}">
+            <span class="validationError"
+                  th:if="${#fields.hasErrors('title')}"
+                  th:errors="*{title}">title Error</span>
+        </div>
+
+        <div class="description">
+            <h3>Enter your task description:</h3>
+            <textarea th:field="*{description}">
+
+            </textarea>
+            <span class="validationError"
+                  th:if="${#fields.hasErrors('description')}"
+                  th:errors="*{description}">detail Error</span>
+        </div>
+
+        <input type="submit" value="Add"/>
+        <input type="hidden"
+               th:name="${_csrf.parameterName}"
+               th:value="${_csrf.token}"/>
+    </form>
+</body>
+</html>
