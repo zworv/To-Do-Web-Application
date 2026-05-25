@@ -29,7 +29,7 @@ public class AddTaskController {
     }
 
     @PostMapping
-    public String addTask(@Valid Task task, Errors errors, SessionStatus sessionStatus) {
+    public String addTask(@Valid Task task, Errors errors) {
         if(errors.hasErrors()) {
             return "add";
         }
