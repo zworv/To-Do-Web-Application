@@ -6,6 +6,7 @@
 </head>
 
 <body>
+<h1>Hello <span th:text="${#authentication.name}">Username</span> !</h1>
 <h1>To-Do</h1>
 
 <form method="POST" th:action="@{/logout}">
