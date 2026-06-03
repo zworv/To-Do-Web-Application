@@ -12,7 +12,7 @@ import org.springframework.web.bind.support.SessionStatus;
 
 @Slf4j
 @Controller
-@RequestMapping("/add")
+@RequestMapping("/addTask")
 public class AddTaskController {
 
     @Autowired
@@ -24,14 +24,14 @@ public class AddTaskController {
     }
 
     @GetMapping
-    public String showAddForm() {
-        return "add";
+    public String showAddTaskForm() {
+        return "addTask";
     }
 
     @PostMapping
     public String addTask(@Valid Task task, Errors errors) {
         if(errors.hasErrors()) {
-            return "add";
+            return "addTask";
         }
 
         service.create(task);
