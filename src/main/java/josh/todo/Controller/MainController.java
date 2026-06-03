@@ -22,14 +22,14 @@ public class MainController {
         return "main";
     }
 
-    @GetMapping("/delete/{id}")
+    @GetMapping("/deleteTask/{id}")
     public String deleteTask(@PathVariable Integer id, Model model) {
         model.addAttribute("tasks", service.deleteById(id));
 
         return "redirect:/main";
     }
 
-    @GetMapping("/complete/{id}")
+    @GetMapping("/completeTask/{id}")
     public String completeTask(@PathVariable Integer id, Model model) {
         service.completeById(id);
         model.addAttribute("tasks", service.findAll());

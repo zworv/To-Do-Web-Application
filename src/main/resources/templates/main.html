@@ -23,8 +23,8 @@
     <p>
         <nav>
             <ul>
-                <li><a th:href="@{/main/delete/{id}(id=${task.id})}">Delete</a></li>
-                <li><a th:href="@{/main/complete/{id}(id=${task.id})}">Complete</a></li>
+                <li><a th:href="@{/main/deleteTask/{id}(id=${task.id})}">Delete</a></li>
+                <li><a th:href="@{/main/completeTask/{id}(id=${task.id})}">Complete</a></li>
             </ul>
         </nav>
         ID: <span th:text="${task.id}">Id</span>
