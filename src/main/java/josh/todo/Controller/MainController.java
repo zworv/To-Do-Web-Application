@@ -41,6 +41,20 @@ public class MainController {
         return "redirect:/";
     }
 
+    @GetMapping("/taskOrderById")
+    public String taskOrderById(Model model) {
+        model.addAttribute("tasks", taskService.findAllByOrderById());
+
+        return "main";
+    }
+
+    @GetMapping("/taskOrderByDeadline")
+    public String taskOrderByDeadline(Model model) {
+        model.addAttribute("tasks", taskService.findAllByOrderByDeadline());
+
+        return "main";
+    }
+
     @GetMapping("/deleteTask/{id}")
     public String deleteTask(@PathVariable Integer id, Model model) {
         model.addAttribute("tasks", taskService.deleteById(id));

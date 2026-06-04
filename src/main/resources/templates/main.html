@@ -25,6 +25,14 @@
     </ul>
 </nav>
 
+<nav>
+    <p>Orders:</p>
+    <ul>
+        <li><a th:href="@{/main/taskOrderById}">ID</a></li>
+        <li><a th:href="@{/main/taskOrderByDeadline}">Deadline</a></li>
+    </ul>
+</nav>
+
 <div th:each="task: ${tasks}">
     <p>
         <nav>

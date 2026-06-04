@@ -73,7 +73,12 @@
       - [x] 建立logout filter chain
       - [x] 在main.html建立logout連結
 8. 其他
-    - [x] 建立user能夠自行刪除個人帳戶
+    - [x] user能夠自行刪除個人帳戶
+    - [x] todo可以進行排序
+    - 新增admin權限
+      - [ ] 建立admin帳戶
+      - [ ] 建立只有admin能進入的連結
+      - [ ] admin可以進行user CRUD
 
 ### Issue
 
