@@ -19,6 +19,12 @@
     </ul>
 </nav>
 
+<nav>
+    <ul>
+        <li><a th:href="@{/main/deleteCurrentUser}">Delete current user</a></li>
+    </ul>
+</nav>
+
 <div th:each="task: ${tasks}">
     <p>
         <nav>

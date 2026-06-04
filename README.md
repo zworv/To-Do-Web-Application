@@ -72,6 +72,8 @@
       - [x] 建立login in viewController
       - [x] 建立logout filter chain
       - [x] 在main.html建立logout連結
+8. 其他
+    - [x] 建立user能夠自行刪除個人帳戶
 
 ### Issue
 
@@ -89,6 +91,7 @@
 
 ### Idea
 
-- Default task建立
-- Task 新增 tags
-- 顯示user名字在main.html中
+- [ ] Default task建立
+- [ ] Task 新增 tags
+- [x] 顯示user名字在main.html中
+- [ ] 新增admin role and its dashboard
