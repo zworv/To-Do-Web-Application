@@ -24,8 +24,8 @@ public class MainController {
     private UserRepositoryDetailsService userService;
 
     @GetMapping
-    public String showMain(Model model) {
-        model.addAttribute("tasks", taskService.findAll());
+    public String showMain(@AuthenticationPrincipal User user, Model model) {
+        model.addAttribute("tasks", taskService.findAllByUserId(user.getId()));
 
         return "main";
     }
@@ -41,16 +41,16 @@ public class MainController {
         return "redirect:/";
     }
 
-    @GetMapping("/taskOrderById")
-    public String taskOrderById(Model model) {
-        model.addAttribute("tasks", taskService.findAllByOrderById());
+    @GetMapping("/taskByUserIdOrderById")
+    public String taskByUserIdOrderById(@AuthenticationPrincipal User user, Model model) {
+        model.addAttribute("tasks", taskService.findAllByUserIdOrderById(user.getId()));
 
         return "main";
     }
 
-    @GetMapping("/taskOrderByDeadline")
-    public String taskOrderByDeadline(Model model) {
-        model.addAttribute("tasks", taskService.findAllByOrderByDeadline());
+    @GetMapping("/taskByUserIdOrderByDeadline")
+    public String taskByUserIdOrderByDeadline(@AuthenticationPrincipal User user, Model model) {
+        model.addAttribute("tasks", taskService.findAllByUserIdOrderByDeadline(user.getId()));
 
         return "main";
     }

@@ -22,5 +22,6 @@ public class Task {
     private String title;
     @NotBlank
     private String description;
+    private Integer userId;
 
 }

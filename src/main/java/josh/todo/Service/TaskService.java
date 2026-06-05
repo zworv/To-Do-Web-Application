@@ -26,12 +26,24 @@ public class TaskService {
         return taskRepo.findAll();
     }
 
-    public List<Task> findAllByOrderById() {
+    public List<Task> findAllByUserId(Integer userId) {
+        return taskRepo.findAllByUserId(userId);
+    }
+
+    public List<Task> findAllOrderById() {
         return taskRepo.findAll(Sort.by("id"));
     }
 
-    public List<Task> findAllByOrderByDeadline() {
+    public List<Task> findAllOrderByDeadline() {
         return taskRepo.findAll(Sort.by("deadline"));
+    }
+
+    public List<Task> findAllByUserIdOrderById(Integer userId) {
+        return taskRepo.findAllByUserIdOrderById(userId);
+    }
+
+    public List<Task> findAllByUserIdOrderByDeadline(Integer userId) {
+        return taskRepo.findAllByUserIdOrderByDeadline(userId);
     }
 
     public List<Task> deleteById(Integer id) {

@@ -1,6 +1,6 @@
 # To-Do Web Application
 
-### 個人To-Do Web Application
+### To-Do Web Application
 
 - 使用Spring Framework。
 - 使用Thymeleaf渲染網頁。
@@ -95,11 +95,14 @@
   - 解決方案:資料表命名為@Table(name = "\"user\"")
 - [x] hasRole("USER") not found the creator
   - 答案: User.java裡的getAuthorities()
-
+- [x] addTask.html 無輸入並繳交時產生 MethodArgumentNotValidException
+    - 解決方案: 參數順序問題
+      - 錯誤: addTask(@Valid Task task, @AuthenticationPrincipal User user, Errors errors)
+      - 正確: addTask(@Valid Task task, Errors errors, @AuthenticationPrincipal User user)
 ### Idea
 
 - [ ] Default task建立
 - [ ] Task 新增 tags
 - [x] 顯示user名字在main.html中
 - [ ] 新增admin role and its dashboard
-- [ ] Todo web application
+- [x] Todo web application
