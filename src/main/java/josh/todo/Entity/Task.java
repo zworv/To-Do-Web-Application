@@ -20,7 +20,6 @@ public class Task {
     private LocalDate deadline;
     @NotBlank
     private String title;
-    @NotBlank
     private String description;
     private Integer userId;
 
