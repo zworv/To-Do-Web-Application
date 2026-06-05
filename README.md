@@ -2,11 +2,26 @@
 
 ### To-Do Web Application
 
+#### Using 
+
 - 使用Spring Framework。
 - 使用Thymeleaf渲染網頁。
 - 使用Spring Data JPA儲存庫。
 - 使用MySQL資料庫(須事先建立Todo資料庫及Task表，以及變更username、password)。
 - 使用Spring Security。
+
+#### Description
+
+- User
+  - Register
+  - Login
+  - Delete
+- Todo(Tasks)
+  - Add
+  - Delete
+  - isCompleted
+  - Deadline
+  - OrderBy
 
 ### 網頁架構
 
@@ -23,6 +38,7 @@
   - deadline
   - title
   - description
+  - userId
 - User
   - id
   - username
