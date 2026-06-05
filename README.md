@@ -93,6 +93,8 @@
 - [x] Error: create table [*]user (id integer not null, password varchar(255), username varchar(255), primary key (id))"; expected "identifier";
   - 原因:user為reserved keyword應換成其他keyword
   - 解決方案:資料表命名為@Table(name = "\"user\"")
+- [x] hasRole("USER") not found the creator
+  - 答案: User.java裡的getAuthorities()
 
 ### Idea
 
@@ -100,3 +102,4 @@
 - [ ] Task 新增 tags
 - [x] 顯示user名字在main.html中
 - [ ] 新增admin role and its dashboard
+- [ ] Todo web application

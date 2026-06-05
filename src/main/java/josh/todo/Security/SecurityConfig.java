@@ -20,7 +20,7 @@ public class SecurityConfig {
         http
             .authorizeHttpRequests(authorize -> authorize
                     .requestMatchers("/main", "/add").hasRole("USER")
-                    .requestMatchers("/", "/**").permitAll()
+                    .anyRequest().permitAll()
             )
             .formLogin(formLogin -> formLogin
                     .loginPage("/login")
