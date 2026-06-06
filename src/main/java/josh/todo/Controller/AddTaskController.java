@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 public class AddTaskController {
 
     @Autowired
-    private TaskService service;
+    private TaskService taskService;
 
     @ModelAttribute(name="task")
     public Task task() {
@@ -39,7 +39,7 @@ public class AddTaskController {
 
         task.setUserId(userId);
 
-        service.create(task);
+        taskService.create(task);
 
         log.info("Add user {} task: {}", user, task);
 

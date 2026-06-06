@@ -56,14 +56,22 @@ public class MainController {
     }
 
     @GetMapping("/deleteTask/{id}")
-    public String deleteTask(@PathVariable Integer id, Model model) {
+    public String deleteTask(@PathVariable Integer id, @AuthenticationPrincipal User user, Model model) {
+        if(taskService.findById(id).isEmpty() || !taskService.findById(id).get().getUserId().equals(user.getId())) {
+            return "redirect:/";
+        }
+
         model.addAttribute("tasks", taskService.deleteById(id));
 
         return "redirect:/main";
     }
 
     @GetMapping("/completeTask/{id}")
-    public String completeTask(@PathVariable Integer id, Model model) {
+    public String completeTask(@PathVariable Integer id, @AuthenticationPrincipal User user, Model model) {
+        if(taskService.findById(id).isEmpty() || !taskService.findById(id).get().getUserId().equals(user.getId())) {
+            return "redirect:/";
+        }
+
         taskService.completeById(id);
         model.addAttribute("tasks", taskService.findAll());
 

@@ -7,6 +7,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TaskService {
@@ -20,6 +21,10 @@ public class TaskService {
 
     public Task create(Task task) {
         return taskRepo.save(task);
+    }
+
+    public Optional<Task> findById(Integer id) {
+        return taskRepo.findById(id);
     }
 
     public List<Task> findAll() {
