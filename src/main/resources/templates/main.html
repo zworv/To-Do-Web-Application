@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <title>To-Do</title>
 </head>
@@ -34,19 +33,17 @@
 </nav>
 
 <div th:each="task: ${tasks}">
-    <p>
-        <nav>
-            <ul>
-                <li><a th:href="@{/main/deleteTask/{id}(id=${task.id})}">Delete</a></li>
-                <li><a th:href="@{/main/completeTask/{id}(id=${task.id})}">Complete</a></li>
-            </ul>
-        </nav>
-        ID: <span th:text="${task.id}">Id</span>
-        isCompleted: <span th:text="${task.isCompleted} ? 'Y' : 'N'">Y/N</span>
-        Deadline: <span th:text="${task.deadline}">Deadline</span>
-        <h3 th:text="${task.title}">Title</h3>
-        <p th:text="${task.description}">Description</p>
-    </p>
+    <nav>
+        <ul>
+            <li><a th:href="@{/main/deleteTask/{id}(id=${task.id})}">Delete</a></li>
+            <li><a th:href="@{/main/completeTask/{id}(id=${task.id})}">Complete</a></li>
+        </ul>
+    </nav>
+    ID: <span th:text="${task.id}">Id</span>
+    isCompleted: <span th:text="${task.isCompleted} ? 'Y' : 'N'">Y/N</span>
+    Deadline: <span th:text="${task.deadline}">Deadline</span>
+    <h3 th:text="${task.title}">Title</h3>
+    <p th:text="${task.description}">Description</p>
 </div>
 
 </body>

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <title>To-Do</title>
 </head>
@@ -8,11 +7,11 @@
 <body>
     <h1>Register</h1>
     <form method="POST" th:action="@{/register}">
-        <h3>Username:</h3>
-        <input type="text" name="username"/>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username"/>
         <br/>
-        <h3>Password:</h3>
-        <input type="password" name="password"/>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password"/>
         <br/>
         <input type="submit" value="Register"/>
     </form>
