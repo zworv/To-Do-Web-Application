@@ -1,6 +1,6 @@
 package josh.todo.Controller;
 
-import josh.todo.Repository.UserRepository;
+import josh.todo.Service.UserRepositoryDetailsService;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class RegistrationController {
 
     @Autowired
-    private UserRepository userRepo;
+    private UserRepositoryDetailsService userRepositoryDetailsService;
     @Autowired
     private PasswordEncoder passwordEncoder;
 
@@ -28,7 +28,7 @@ public class RegistrationController {
 
     @PostMapping
     public String processRegistration(RegistrationForm form) {
-        userRepo.save(form.toUser(passwordEncoder));
+        userRepositoryDetailsService.addUser(form.toUser(passwordEncoder));
         log.info("Add user: {}", form);
         return "redirect:/login";
     }

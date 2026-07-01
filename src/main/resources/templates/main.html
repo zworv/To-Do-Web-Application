@@ -2,48 +2,80 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <title>To-Do</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: row;
+        }
+
+        aside {
+            width: 20%;
+        }
+
+        main {
+            width: 80%;
+
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+
+            gap: 1rem;
+        }
+
+        main > div {
+            border: solid;
+            border-radius: 0.5rem;
+            padding: 1rem;
+        }
+    </style>
 </head>
 
 <body>
 <h1>Hello <span th:text="${#authentication.name}">Username</span> !</h1>
 <h1>To-Do</h1>
 
-<form method="POST" th:action="@{/logout}">
-    <input type="submit" value="Logout" />
-</form>
+<div class="container">
+    <aside>
+        <form method="POST" th:action="@{/logout}">
+            <input type="submit" value="Logout" />
+        </form>
 
-<nav>
-    <ul>
-        <li><a th:href="@{/addTask}">Add Task</a></li>
-    </ul>
-</nav>
+        <nav>
+            <ul>
+                <li><a th:href="@{/addTask}">Add Task</a></li>
+            </ul>
+        </nav>
 
-<nav>
-    <ul>
-        <li><a th:href="@{/main/deleteCurrentUser}">Delete current user</a></li>
-    </ul>
-</nav>
+        <nav>
+            <ul>
+                <li><a th:href="@{/main/deleteCurrentUser}">Delete current user</a></li>
+            </ul>
+        </nav>
 
-<nav>
-    <p>Orders:</p>
-    <ul>
-        <li><a th:href="@{/main/taskByUserIdOrderById}">ID</a></li>
-        <li><a th:href="@{/main/taskByUserIdOrderByDeadline}">Deadline</a></li>
-    </ul>
-</nav>
+        <nav>
+            <p>Orders:</p>
+            <ul>
+                <li><a th:href="@{/main/taskByUserIdOrderById}">ID</a></li>
+                <li><a th:href="@{/main/taskByUserIdOrderByDeadline}">Deadline</a></li>
+            </ul>
+        </nav>
+    </aside>
 
-<div th:each="task: ${tasks}">
-    <nav>
-        <ul>
-            <li><a th:href="@{/main/deleteTask/{id}(id=${task.id})}">Delete</a></li>
-            <li><a th:href="@{/main/completeTask/{id}(id=${task.id})}">Complete</a></li>
-        </ul>
-    </nav>
-    ID: <span th:text="${task.id}">Id</span>
-    isCompleted: <span th:text="${task.isCompleted} ? 'Y' : 'N'">Y/N</span>
-    Deadline: <span th:text="${task.deadline}">Deadline</span>
-    <h3 th:text="${task.title}">Title</h3>
-    <p th:text="${task.description}">Description</p>
+    <main>
+        <div th:each="task: ${tasks}">
+            <nav>
+                <ul>
+                    <li><a th:href="@{/main/deleteTask/{id}(id=${task.id})}">Delete</a></li>
+                    <li><a th:href="@{/main/completeTask/{id}(id=${task.id})}">Complete</a></li>
+                </ul>
+            </nav>
+            ID: <span th:text="${task.id}">ID</span>
+            isCompleted: <span th:text="${task.isCompleted} ? 'Y' : 'N'">Y/N</span>
+            Deadline: <span th:text="${task.deadline}">Deadline</span>
+            <h3 th:text="${task.title}">Title</h3>
+            <p th:text="${task.description}">Description</p>
+        </div>
+    </main>
 </div>
 
 </body>
